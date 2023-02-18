@@ -94,8 +94,8 @@ When you've finished the above steps, click the `Grant admin consent for {Your o
 and then click `Yes`. Remember this step if you add any additional permissions
 in future.
 
-# Creating your web application
-## Create the solution
+## Creating your web application
+### Create the solution
 1. Create a new ASP.NET hosted Blazor WASM application in Visual Studio
 1. **IMPORTANT:** For `Authentication type` select `Microsoft identity platform`
 1. The `Required components` wizard will appear and try to connect to your
@@ -103,11 +103,11 @@ in future.
    (another app registration)
 1. Click `Cancel`
 
-## Match our sign-in callback URL to the registered application's
+### Match our sign-in callback URL to the registered application's
 Edit `Properties/launchSettings.json` in both the client and
    server app, and set the `applicationUrl` to `https://localhost:6510`
 
-## Set client application configuration for AAD
+### Set client application configuration for AAD
 1. Edit `wwwroot/appsettings.json`
 1. Replace the contents with the following
 ```json
@@ -124,7 +124,7 @@ Edit `Properties/launchSettings.json` in both the client and
 ```
 3. Replace `{Application (client) ID}` with the GUID you noted earlier
 
-## Set up client authentication to read from our configuration
+### Set up client authentication to read from our configuration
 1. Edit `Program.cs`
 1. Change the `AddMsalAuthentication` section so scopes are read from the config file
 ```csharp
@@ -142,7 +142,7 @@ builder.Services.AddMsalAuthentication(options =>
 });
 ```
 
-## Set server application configuration for AAD
+### Set server application configuration for AAD
 1. Edit `appsettings.json`
 1. Replace the `AzureAd` section with the following
 ```json
@@ -155,7 +155,7 @@ builder.Services.AddMsalAuthentication(options =>
 ```
 3. Replace `{Application (client) ID}` with the GUID you noted earlier
 
-## Update the server to use WebApiAuthentication and add Authorization
+### Update the server to use WebApiAuthentication and add Authorization
 1. Edit `Program.cs`
 1. Replace
 ```csharp
@@ -168,7 +168,7 @@ builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration)
 builder.Services.AddAuthorization();
 ```
 
-### Remove server Views support (optional)
+#### Remove server Views support (optional)
 1. Edit `Program.cs`
 1. Replace
 ```csharp
@@ -179,12 +179,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 ```
 
-### Remove server Razor Pages support (optional)
+#### Remove server Razor Pages support (optional)
 1. Edit `Program.cs`
 1. Remove `builder.Services.AddRazorPages();`
 1. Remove `app.UseRazorPages();`
 
-### Remove SCOPE requirement from server controller (workaround)
+#### Remove SCOPE requirement from server controller (workaround)
 This step is only required until I work out why the user's scopes
 are not being passed to the server.
 
