@@ -8,7 +8,7 @@ namespace AadMultiTenantBlazorApp.Server.Controllers
 	[Authorize]
 	[ApiController]
 	[Route("[controller]")]
-	[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+	//[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
 	public class WeatherForecastController : ControllerBase
 	{
 		private static readonly string[] Summaries = new[]
@@ -26,6 +26,7 @@ namespace AadMultiTenantBlazorApp.Server.Controllers
 		[HttpGet]
 		public IEnumerable<WeatherForecast> Get()
 		{
+			var user = HttpContext.User;
 			return Enumerable.Range(1, 5).Select(index => new WeatherForecast
 			{
 				Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
