@@ -26,7 +26,8 @@ namespace AadMultiTenantBlazorApp.Client
 					builder.Configuration!.GetSection("ServerApi")["Scopes"]
 					?? throw new InvalidOperationException("ServerApi::Scopes is missing from appsettings.json");
 				options.ProviderOptions.DefaultAccessTokenScopes.Add(scopes);
-				options.ProviderOptions.LoginMode = "redirect";
+				// Uncomment the next line if you have problems with a pop-up sign-in window
+				// options.ProviderOptions.LoginMode = "redirect";
 			});
 
 			await builder.Build().RunAsync();
