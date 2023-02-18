@@ -7,6 +7,11 @@ Allows absolutely anyone to use your app as long as they have
 authenticated using Azure Active Directory.  The user doesn't
 need to be in *your* directory, just *some* directory.
 
+Note that this doesn't restrict who can access your application,
+nor what they can do once they've signed in. It just ensures
+you know the person using your application has gone through
+the necessary sign-in process on Azure Active Directory.
+
 ## Creating your Active Directory
 ### Enable Active Directory as a resource provider
 1. Sign into https://portal.azure.com
