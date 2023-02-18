@@ -134,8 +134,11 @@ builder.Services.AddMsalAuthentication(options =>
   string? scopes =
     builder.Configuration!.GetSection("ServerApi")["Scopes"]
       ?? throw new InvalidOperationException("ServerApi::Scopes is missing from appsettings.json");
+
   options.ProviderOptions.DefaultAccessTokenScopes.Add(scopes);
-  options.ProviderOptions.LoginMode = "redirect";
+
+  // Uncomment the next line if you have problems with a pop-up sign-in window
+  // options.ProviderOptions.LoginMode = "redirect";
 });
 ```
 
@@ -180,3 +183,11 @@ builder.Services.AddControllers();
 1. Edit `Program.cs`
 1. Remove `builder.Services.AddRazorPages();`
 1. Remove `app.UseRazorPages();`
+
+### Remove SCOPE requirement from server controller (workaround)
+This step is only required until I work out why the user's scopes
+are not being passed to the server.
+
+1. Edit `WeatherForecastController.cs`
+1. Comment out the line with the `[RequiredScope]` attribute on it
+ 
