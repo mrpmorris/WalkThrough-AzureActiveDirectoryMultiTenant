@@ -119,8 +119,7 @@ Edit `Properties/launchSettings.json` in both the client and
 {
 	"AzureAd": {
 		"ClientId": "{Application (client) ID}",
-		"Authority": "https://login.microsoftonline.com/organizations",
-		"ValidateAuthority": false
+		"Authority": "https://login.microsoftonline.com/organizations"
 	},
 	"ServerApi": {
 		"Scopes": "api://{Application (client) ID}/access_as_user"
