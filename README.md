@@ -2,6 +2,8 @@
 A step by step guide to creating an ASP.NET hosted Blazor WASM
 client that uses Azure Active Directory to authenticate.
 
+**NOTE:** You can read my blog covering this [Here](https://peterlesliemorris.com/azure-active-directory-multitenant-integration-with-blazor-wasm-part-1/) - it is almost identical to this document, except it has some additional comments explaining some of the steps.
+
 ## Why multi-tenant?
 Allows absolutely anyone to use your app as long as they have
 authenticated using Azure Active Directory.  The user doesn't
